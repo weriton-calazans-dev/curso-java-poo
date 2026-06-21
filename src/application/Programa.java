@@ -23,13 +23,13 @@ public class Programa {
         System.out.println(prod);
         System.out.println();
 
-        System.out.print("Quantos produtos foran adicionados ao estoque: ");
+        System.out.print("Quantos produtos foram adicionados ao estoque: ");
         quantidade = sc.nextInt();
         prod.adicionarProduto(quantidade);
         System.out.println(prod);
         System.out.println();
 
-        System.out.printf("Quantos %s foram vendidas: ",prod.nome);
+        System.out.printf("Quantas unidades %s foram vendidas: ",prod.getNome());
         quantidade = sc.nextInt();
         prod.vendaDeProduto(quantidade);
         System.out.println(prod);
