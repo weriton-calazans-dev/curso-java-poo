@@ -8,22 +8,23 @@ public class Programa {
    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Produto prod = new Produto();
 
         System.out.print("Digite o nome do produto: ");
-        prod.nome = sc.nextLine();
+        String nome = sc.nextLine();
 
         System.out.print("Digite o preço do produto: R$ ");
-        prod.preco = sc.nextDouble();
+        double preco = sc.nextDouble();
 
         System.out.print("Digite a quantidade de entrada: ");
-        prod.quantidade = sc.nextInt();
+        int quantidade = sc.nextInt();
+
+        Produto prod = new Produto(nome, preco, quantidade);
 
         System.out.println(prod);
         System.out.println();
 
         System.out.print("Quantos produtos foran adicionados ao estoque: ");
-        int quantidade = sc.nextInt();
+        quantidade = sc.nextInt();
         prod.adicionarProduto(quantidade);
         System.out.println(prod);
         System.out.println();
