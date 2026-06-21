@@ -9,4 +9,15 @@ public class Produto {
     public double valorTotalEmEstoque(){
         return preco * quantidade;
     }
+    // void é só para atualizar a variável da class
+    // this referencia a quntidade da class produte e o quantidade dos colchete é a variável do programa principal
+    public void adicionarProduto(int quantidade){
+        this.quantidade += quantidade;
+    }
+    public void vendaDeProduto(int quantidade){
+        this.quantidade -= quantidade;
+    }
+    public String toString(){
+        return nome +", valor por unidade: " + String.format("%.2f",preco)+ ", quantidade no estoque: " + quantidade + ", valor total do estoque: "+ String.format("%.2f",valorTotalEmEstoque());
+    }
 }
