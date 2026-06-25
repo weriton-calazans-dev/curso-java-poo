@@ -2,32 +2,48 @@ package entities;
 
 public class CadastroCliente {
     private String nomeCliente;
-    private String numeroConta;
-    private String saldo;
+    private int numeroConta;
+    private double saldo;
 
-
-    public CadastroCliente(String nomeCliente, String numeroConta, String saldo){
-        if (nomeCliente.matches("^[a-zA-z ]+$")){
-            if (numeroConta.strip().matches("^[0-9]{5}+$")){
-                System.out.printf("Nome cadastrado com sucesso.");
-                this.nomeCliente = nomeCliente;
-                this.numeroConta = numeroConta;
-                if (saldo.matches("^[0-9]*$")){
-                    this.saldo = saldo;
-                }
-            } else {
-                System.out.println("Conta inválida!");
-            }
-        } else{
-            System.out.println("Nome inválido!");
-        }
-
+    public CadastroCliente(String nomeCliente, int numeroConta) {
+        this.nomeCliente = nomeCliente;
+        this.numeroConta = numeroConta;
     }
 
-    public String toString(){
-        return  " Nome: " + nomeCliente +
-                " ,Conta: " + numeroConta +
-                " ,Saldo: " + saldo;
+    public CadastroCliente(String nomeCliente, int numeroConta, double depositoInicial) {
+        this.nomeCliente = nomeCliente;
+        this.numeroConta = numeroConta;
+        depositoDinheiro(depositoInicial);
     }
 
+    public String getNomeCliente() {
+        return this.nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public int getNumeroConta() {
+        return this.numeroConta;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    public void saqueDinheiro(double saque){
+            this.saldo -= (5.0 + saque);
+    }
+    public void depositoDinheiro (double deposito){
+        this.saldo += deposito;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Cliente: " + nomeCliente +
+                ", Conta: " + numeroConta +
+                ", saldo: R$ " + String.format("%.2f",saldo);
+    }
 }
